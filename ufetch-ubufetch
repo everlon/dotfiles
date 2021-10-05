@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+
+# Include 'os-release' to grab Debian pretty name...
+
+. /etc/os-release
+
+# Styles...
+
+black="$(tput setaf 0)"
+red="$(tput setaf 1)"
+green="$(tput setaf 2)"
+yellow="$(tput setaf 3)"
+blue="$(tput setaf 4)"
+purple="$(tput setaf 5)"
+cyan="$(tput setaf 6)"
+#red="$(tput setaf 7)"
+#red="$(tput setaf 8)"
+white="$(tput setaf 9)"
+
+bold="$(tput bold)"
+reset="$(tput sgr0)"
+
+# Get terminal col width...
+
+cols=$(tput cols)
+
+# Main...
+clear
+
+echo "
+         $reset $red${bold}$USER@$HOSTNAME${reset}
+$white   .${blue}~${reset}.  $reset $green${bold}$(cat /proc/cpuinfo | grep 'Model' | cut -d':' -f2-)${reset}
+$white   /${yellow}v${reset}\   $reset ${bold}os:    ${reset} ${green}$PRETTY_NAME${reset}
+$white  // \\\  $reset ${bold}kernel:${reset} ${green}$(uname -rm)${reset}
+$white /(   )\ $reset ${bold}uptime:${reset} ${yellow}$(uptime -p | cut -d' ' -f2-)${reset}
+$white  ${yellow}^${reset}'~'${yellow}^${reset}  $reset ${bold}pkgs:  ${reset} ${purple}$(dpkg -l | wc -l)${reset}
+"
+printf -- "-%.s" $(seq $cols)
+#echo -e "\n"
+#exit 0

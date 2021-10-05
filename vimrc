@@ -1,0 +1,88 @@
+set nocompatible
+syntax on
+filetype off
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Plugin 'gmarik/vundle'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-markdown'
+Plugin 'pangloss/vim-javascript'
+Plugin 'davidhalter/jedi-vim'
+Plugin 'bronson/vim-trailing-whitespace'
+"Plugin 'mileszs/ack.vim'
+"Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'mattn/emmet-vim'
+Plugin 'tpope/vim-commentary'
+Plugin 'sheerun/vim-polyglot'
+Plugin 'ap/vim-css-color'
+
+let NERDTreeShowHidden = 1
+let NERDTreeQuitOnOpen = 1 "Fechar NerdTree quando abrir o arquivo.
+nmap <F2> :NERDTreeToggle<CR>
+
+let g:NERDSpaceDeLims = 1
+let g:NERDCompactSexyComs = 1
+let g:NERDDefaultAlign = 'left'
+let g:NERDCommentEmptyLines = 1
+let g:NERDTrimTrailingWhitespace = 1
+
+filetype indent plugin on
+
+"set term=screen=256color " Não usar
+set encoding=utf-8
+" packadd! dracula
+colorscheme desert
+set bg=dark
+set colorcolumn=120
+set guifont=Monaco:h12
+set nowrap
+set nu
+set laststatus=2
+set wildmenu
+set path+=**
+set shell=/bin/bash
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set autoindent
+set incsearch
+set confirm
+set title
+" set foldmethod=marker
+set noswapfile
+set linebreak
+set ruler
+set novisualbell
+set noerrorbells
+set showcmd
+set showmode
+set showmatch
+" set mouse=a
+
+map q :quit<CR>
+map <C-s> :w<CR>
+map vs- :vertical resize -5<CR>
+map vs= :vertical resize +5<CR>
+
+" Desacostumar das teclas de setas:
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+
+let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'markdown=md']
+let python_highlight_all = 1
+
+" let g:dracula = 1
+
+let g:molokai_original = 1
+let g:rehash256 = 1
+
+" Remove todo espaço em branco pressionando F4
+noremap <F4> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+
+nnoremap ev :e $MYVIMRC<CR>
+nnoremap rv :w!<Esc>:source $MYVIMRC<CR>
+
