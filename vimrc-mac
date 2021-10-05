@@ -1,0 +1,140 @@
+set nocompatible
+syntax on
+filetype off
+
+set rtp+=~/.vim/bundle/vundle/
+" set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#rc()
+call vundle#begin()
+
+Plugin 'gmarik/vundle'
+Plugin 'itchyny/lightline.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'tpope/vim-markdown'
+Plugin 'pangloss/vim-javascript'
+Plugin 'vim-python/python-syntax'
+Plugin 'davidhalter/jedi-vim'
+Plugin 'bronson/vim-trailing-whitespace'
+"Plugin 'mileszs/ack.vim'
+"Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'mattn/emmet-vim'
+Plugin 'tpope/vim-commentary'
+Plugin 'sheerun/vim-polyglot'
+Plugin 'ap/vim-css-color'
+Plugin 'severin-lemaignan/vim-minimap'
+Plugin 'dracula/vim', { 'name': 'dracula' }
+Plugin 'terryma/vim-expand-region' " Selecionar blocos = map K / J
+Plugin 'vim-scripts/indentpython.vim'
+Plugin 'lepture/vim-jinja'
+
+" Plugin 'tpope/vim-fugitive'
+    " mkdir -p ~/.vim/pack/tpope/start
+    " cd ~/.vim/pack/tpope/start
+    " git clone https://tpope.io/vim/fugitive.git
+    " vim -u NONE -c "helptags fugitive/doc" -c q
+
+call vundle#end()
+
+let NERDTreeShowHidden = 1
+let NERDTreeQuitOnOpen = 1 "Fechar NerdTree quando abrir o arquivo.
+nmap <F2> :NERDTreeToggle<CR>
+" nnoremap <leader>n :NERDTreeFocus<CR>
+" nnoremap <C-n> :NERDTree<CR>
+" nnoremap <C-t> :NERDTreeToggle<CR>
+" nnoremap <C-f> :NERDTreeFind<CR>
+
+let g:NERDSpaceDeLims = 1
+let g:NERDCompactSexyComs = 1
+let g:NERDDefaultAlign = 'left'
+let g:NERDCommentEmptyLines = 1
+let g:NERDTrimTrailingWhitespace = 1
+
+
+filetype plugin indent on
+
+"set term=screen=256color " Não usar
+set encoding=utf-8
+packadd! dracula
+colorscheme dracula
+set bg=dark
+set colorcolumn=120
+set guifont=Monaco:h12
+set nowrap
+set nu
+set laststatus=2
+set wildmenu
+set path+=**
+set shell=/bin/bash
+set tabstop=2
+set shiftwidth=4
+set expandtab
+set autoindent
+set incsearch
+set confirm
+set title
+" set foldmethod=marker
+set noswapfile
+set linebreak
+set ruler
+set novisualbell
+set noerrorbells
+set showcmd
+set showmode
+set showmatch
+" set mouse=a
+set showtabline=2
+
+
+let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'markdown=md']
+let python_highlight_all = 1
+
+let g:dracula = 1
+" let g:minimap_highlight='Visual'
+let g:molokai_original = 1
+let g:rehash256 = 1
+
+
+" Definindo atalhos personalizados:
+map q :quit<CR>
+map <C-s> :w<CR>
+map vs- :vertical resize -5<CR>
+map vs= :vertical resize +5<CR>
+
+" Desacostumar das teclas de setas:
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+
+" Mover entre as tabs com as setas:
+nnoremap <left> gT
+nnoremap <right> gt
+
+" Remove todo espaço em branco pressionando F4
+noremap <F4> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+
+nnoremap ev :e $MYVIMRC<CR>
+nnoremap rv :w!<Esc>:source $MYVIMRC<CR>
+
+nnoremap mm :MinimapToggle<CR>
+
+map K <Plug>(expand_region_expand)
+map J <Plug>(expand_region_shrink)
+
+" :help map-table
+"---------------------------------------------------------------------------"
+" Commands \ Modes | Normal | Insert | Command | Visual | Select | Operator |
+"------------------|--------|--------|---------|--------|--------|----------|
+" map  / noremap   |    @   |   -    |    -    |   @    |   @    |    @     |
+" nmap / nnoremap  |    @   |   -    |    -    |   -    |   -    |    -     |
+" vmap / vnoremap  |    -   |   -    |    -    |   @    |   @    |    -     |
+" omap / onoremap  |    -   |   -    |    -    |   -    |   -    |    @     |
+" xmap / xnoremap  |    -   |   -    |    -    |   @    |   -    |    -     |
+" smap / snoremap  |    -   |   -    |    -    |   -    |   @    |    -     |
+" map! / noremap!  |    -   |   @    |    @    |   -    |   -    |    -     |
+" imap / inoremap  |    -   |   @    |    -    |   -    |   -    |    -     |
+" cmap / cnoremap  |    -   |   -    |    @    |   -    |   -    |    -     |
+"---------------------------------------------------------------------------"
+
