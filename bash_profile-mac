@@ -1,0 +1,24 @@
+source ~/.profile
+
+alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
+alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
+
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+
+alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
+export PS1="\e[37;1m \w\e[m ❯ "
+
+# Setting PATH for Python 3.9
+# The original version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.9/bin:${PATH}"
+export PATH
+
+
+#export LSCOLORS="EHfxcxdxBxegecabagacad"
+export LSCOLORS="ExgxdxhxBxegedabagacad"
+alias ls='ls -GH'
+alias l='ls -CFGH'
+alias la='ls -AGH'
+alias ll='ls -alFGH'
+alias python="python3"
+alias c='clear'
