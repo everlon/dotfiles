@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+#. /home/eap/scripts-2bin/cron-exp-vars
+
+wall=$(find ~/pics/wp/ -type f | sort -R | tail -1)
+feh --bg-fill $wall
+
+touch /home/eap/crontab-log.txt
+echo "sh ok" >> /home/eap/crontab-log.txt
+
+exit 0

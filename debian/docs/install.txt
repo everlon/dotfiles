@@ -1,0 +1,14 @@
+sudo apt install xserver-xorg xinit i3 i3status i3blocks xcompmgr xfce4-terminal nitrogen picom dmenu lxappearance ranger feh mpv -y
+sudo apt install fonts-inconsolata fonts-open-sans
+sudo apt install ufw fail2ban
+
+
+# Configurar LOCALE:
+sudo localedef -i pt_BR -f UTF-8 pt_BR.UTF-8
+
+# Configuração Locale padrão:
+sudo localectl set-locale LANG=pt_BR.UTF-8
+
+# Verificar a necessidade destas configurações:
+#setxkbmap -model abnt -layout us -variant intl
+#sudo dpkg-reconfigure keyboard-configuration

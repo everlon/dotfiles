@@ -1,0 +1,14 @@
+#!/bin/bash
+
+if [ -d "/home/$USER/.ScreenLockerImage" ]; then
+	rm -rf /home/$USER/.ScreenLockerImage/*
+	scrot /home/$USER/.ScreenLockerImage/screenshotblur.png
+	convert /home/$USER/.ScreenLockerImage/screenshotblur.png -blur 0x6 /home/$USER/.ScreenLockerImage/screenshotblur.png
+	i3lock -i /home/$USER/.ScreenLockerImage/screenshotblur.png
+else
+	rm -rf /home/$USER/.ScreenLockerImage/*
+	mkdir /home/$USER/.ScreenLockerImage
+	scrot /home/$USER/.ScreenLockerImage/screenshotblur.png
+	convert /home/$USER/.ScreenLockerImage/screenshotblur.png -blur 0x6 /home/$USER/.ScreenLockerImage/screenshotblur.png
+	i3lock -i /home/$USER/.ScreenLockerImage/screenshotblur.png
+fi

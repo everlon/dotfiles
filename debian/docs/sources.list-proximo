@@ -1,0 +1,14 @@
+# Para que o APT seja mais rápido siga os passos abaixo:
+
+# Instalar o netselect-apt:
+sudo apt install netselect-apt
+
+# Gerar cópia do arquivo original:
+sudo cp /etc/apt/sources.list /etc/apt/sources.list.ori
+
+# Rodar netselect-apt para procurar o repositório mais perto:
+sudo netselect-apt
+
+# Copiar o arquivo gerado para pasta correta: 
+sudo cp sources.list /etc/apt 
+# Verificar o link de seguranca
